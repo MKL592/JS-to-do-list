@@ -1,20 +1,11 @@
-function validateInput(Input){
-    if(Input){
-        return true;
-    }else{
-        return false;
-    }
-}
+import listElementClass from './thing-to-do.js';
 
-function addElementToList(){
-    const newText = document.createElement("li");
-    let userInput = document.getElementById("userInput").value;
 
-    if(validateInput(userInput) == true){
-        let newNode = document.createTextNode(userInput);
-        newText.appendChild(newNode);
-        document.getElementById("listArea").appendChild(newText);
-    }else{
-        alert("ERROR: INVALID INPUT!");
-    }
-}
+const submitButton = document.getElementById("addButton");
+
+submitButton.addEventListener("click", function(){
+    const userInput = document.getElementById("userInput").value;
+    let ListElementObject = new listElementClass(userInput);
+
+    ListElementObject.addElementToList("listArea");
+});

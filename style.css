@@ -22,3 +22,11 @@ body{
     font-weight: bolder;
     font-size: 30px;
 }
+
+ul {
+    text-align: center;
+}
+    
+li {
+    display: inline-block;
+}
