@@ -2,20 +2,17 @@ export default class listElementClass{
     constructor(userInput){
         this.userInput = userInput;
     }
+
     validateInput(){
-        if(this.userInput != ""){
-            return true;
-        }else{
-            this.handleError("Please write something");
-            return false;
-        }
+       if(this.userInput == "") return false;
+       return true;
     }
 
     createListElement(){
         if(this.validateInput() == true){
-            const newListElement = document.createElement("li");
-            const newDeleteButton = document.createElement("button");
-            const newUserNode = document.createTextNode(this.userInput);
+            let newListElement = document.createElement("li");
+            let newDeleteButton = document.createElement("button");
+            let newUserNode = document.createTextNode(this.userInput);
 
             newDeleteButton.innerHTML = "✖";
             newDeleteButton.addEventListener("click", function(){
@@ -26,6 +23,8 @@ export default class listElementClass{
             newListElement.appendChild(newUserNode);
 
             return newListElement;
+        }else{
+            this.handleError("Please write something");
         }
     }
 
